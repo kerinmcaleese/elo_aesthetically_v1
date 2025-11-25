@@ -1,0 +1,182 @@
+/* GLOBAL RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #1C1C1A; /* deep charcoal */
+  color: #E8E6E1;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* SCENES */
+
+.scene {
+  min-height: 100vh;
+  padding: 4rem 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scene--hero {
+  padding: 0;
+}
+
+/* HERO */
+
+.hero-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Thin rectangular outline */
+.elo-rect {
+  position: absolute;
+  left: 50%;
+  top: -40%;               /* starting above the viewport */
+  width: 28vw;
+  height: 38vh;
+  transform: translateX(-50%);
+  border: 2px solid #E8E6E1;
+  border-radius: 0;
+  overflow: visible;
+}
+
+/* Gloss overlay that sweeps across the border */
+.elo-gloss {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.0) 0%,
+    rgba(255, 255, 255, 0.18) 40%,
+    rgba(255, 255, 255, 0.0) 80%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
+/* Eloquence symbol placeholder */
+.elo-symbol {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E8E6E1;
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+/* Tagline crossing above the rectangle */
+.elo-tagline {
+  position: absolute;
+  left: -110%;
+  top: 50%;
+  transform: translateY(-140%);
+  color: #F5F5DC;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Scroll cue */
+
+.hero-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9C8F7C;
+}
+
+.cue-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #9C8F7C, transparent);
+}
+
+/* Grain overlay for atmosphere */
+
+.grain-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='noStitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* CHAPTER SECTION */
+
+.scene--chapter {
+  background: radial-gradient(circle at top, #262624 0%, #1C1C1A 60%, #111110 100%);
+}
+
+.chapter-inner {
+  max-width: 980px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 0.5fr) minmax(0, 1.5fr);
+  gap: 4rem;
+}
+
+.chapter-label span {
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: #9C8F7C;
+}
+
+.chapter-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  margin-bottom: 1.5rem;
+}
+
+.chapter-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #BDB5A3;
+}
+
+/* BASIC RESPONSIVE TWEAKS */
+
+@media (max-width: 768px) {
+  .scene {
+    padding: 3rem 5vw;
+  }
+
+  .chapter-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
