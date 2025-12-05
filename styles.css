@@ -26,40 +26,6 @@ button {
   color: inherit;
 }
 
-/* ===== HORIZONTAL CANVAS: LEFT | CENTER | RIGHT ===== */
-
-#canvas-wrapper {
-  position: relative;
-  width: 300vw;           /* left + center + right */
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  overflow-x: hidden;
-  overflow-y: visible;
-  transform: translateX(-100vw); /* start at center panel */
-  transition: transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-#hero-main,
-.side-page {
-  width: 100vw;
-  min-height: 100vh;
-  flex-shrink: 0;
-}
-
-.side-page {
-  background-color: #E8E6E1;
-  color: #3E3228;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 10vw;
-}
-
-#hero-main {
-  background: transparent; /* mocha body shows behind hero */
-}
-
 /* ===== HERO ===== */
 
 .simurg-hero {
@@ -67,76 +33,6 @@ button {
   display: flex;
   align-items: stretch;
   justify-content: center;
-}
-
-/* ===== ORBITING REALM PLANETS AROUND HERO CIRCLE ===== */
-
-.orbit-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Center point for the orbit paths – match the circle's center */
-.orbit-ring {
-  position: absolute;
-  top: 15vmin;      /* approximate visual center of simurg-circle */
-  left: 62%;        /* same left as .simurg-circle */
-  transform-origin: center center;
-}
-
-/* both rings share the same path length; second one offset in time so they're opposite */
-.orbit-ring-creative {
-  animation: orbit-path 22s linear infinite;
-}
-
-.orbit-ring-business {
-  animation: orbit-path 22s linear infinite;
-  animation-delay: -11s; /* half the duration = 180° apart */
-}
-
-/* Base for both planets */
-.orbit-planet {
-  position: absolute;
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  background-image: url("assets/CURSOR_ELOQUENCE LOGO-TRANSPARENT BACKGROUND.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 1px solid #E8E6E1;
-  cursor: pointer;
-  box-shadow: 0 0 14px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-/* Position each planet out from the center of its orbit ring (radius) */
-.orbit-ring-creative .orbit-planet {
-  transform: translateX(135px);
-}
-
-.orbit-ring-business .orbit-planet {
-  transform: translateX(135px);
-}
-
-/* Hover: slightly bigger, more glow, keep radius intact */
-.orbit-ring-creative .orbit-planet:hover,
-.orbit-ring-business .orbit-planet:hover {
-  transform: translateX(135px) scale(1.12);
-  box-shadow: 0 0 22px rgba(0, 0, 0, 0.5);
-  border-color: #F5F5DC;
-}
-
-/* Medium-speed orbit path – clockwise */
-@keyframes orbit-path {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .simurg-inner {
@@ -205,36 +101,32 @@ button {
   margin-top: 8rem;
 }
 
-/* ===== HERO REALM BUTTONS: EXPRESSION & EXECUTION ===== */
-
-.realm-buttons {
-  margin-top: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  width: 100%;
-}
-
-.realm-button {
-  font-family: "Figtree", system-ui, -apple-system, sans-serif;
-  font-size: clamp(1.4rem, 2.4vw, 2rem);
-  letter-spacing: 0.14em;
+.simurg-menu-item {
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #E8E6E1;
+  color: #9C8F7C;
   background: none;
   border: none;
+  padding: 0.35rem 0;
+  position: relative;
   cursor: pointer;
-  padding: 0.4rem 0.8rem;
-  text-decoration: none;              /* remove default link underline */
-  border-bottom: 1px solid transparent; /* subtle underline only on hover */
-  transition: transform 0.28s ease, opacity 0.28s ease, border-bottom-color 0.28s ease;
 }
 
-.realm-button:hover {
-  transform: scale(1.16);
-  opacity: 0.82;
-  border-bottom-color: #E8E6E1;
+.simurg-menu-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 0;
+  height: 1px;
+  background-color: #E8E6E1;
+  transition: width 0.25s ease;
+}
+
+.simurg-menu-item:hover::after,
+.simurg-menu-item:focus-visible::after {
+  width: 100%;
 }
 
 .simurg-footer {
@@ -298,86 +190,9 @@ button {
   transform: translateY(-3px);
 }
 
-/* ===== SIDE PAGES (LEFT / RIGHT) ===== */
-
-.side-subsection {
-  margin-bottom: 2.4rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid rgba(62, 50, 40, 0.14);
-}
-
-.side-subtitle {
-  font-size: 0.9rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 0.8rem;
-  color: #4B3D30;
-}
-
-.side-text {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: #3E3228;
-  max-width: 42rem;
-}
-
-.side-text-emphasis {
-  margin-top: 0.7rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #9C8F7C;
-}
-
-/* ===== EDGE HOTZONES ===== */
-
-.hotzone {
-  position: fixed;
-  top: 0;
-  width: 5vw;
-  height: 100vh;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-#hotzone-left { left: 0; }
-#hotzone-right { right: 0; }
-
-#hotzone-left::before,
-#hotzone-right::before {
-  content: "";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 999px;
-  border: 1px solid rgba(232, 230, 225, 0.7);
-  background-color: rgba(62, 50, 40, 0.85);
-  box-shadow: 0 0 14px rgba(0, 0, 0, 0.35);
-  font-size: 1.1rem;
-  color: #E8E6E1;
-}
-
-#hotzone-left::before { content: "\2190"; }
-#hotzone-right::before { content: "\2192"; }
-
-.hotzone:hover::before {
-  transform: scale(1.08);
-  transition: transform 0.2s ease;
-}
-
 /* ===== RESPONSIVE ===== */
 
 @media (max-width: 900px) {
-  #canvas-wrapper {
-    width: 100vw;
-    transform: translateX(0); /* disable horizontal layout on very small screens */
-    flex-direction: column;
-  }
 
   .simurg-header {
     flex-direction: column;
@@ -395,5 +210,4 @@ button {
     row-gap: 0.8rem;
   }
 
-  .hotzone { display: none; }
 }
