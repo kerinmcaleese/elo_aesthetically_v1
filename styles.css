@@ -270,22 +270,85 @@ button {
 
 @media (max-width: 900px) {
 
+  /* stack main title + meta nicely */
+  .simurg-inner {
+    padding: 2.2rem 6vw 2.6rem;
+  }
+
   .simurg-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.6rem;
+    gap: 1.2rem;
+  }
+
+  .simurg-header-main {
+    font-size: clamp(2.1rem, 7vw, 2.6rem);
   }
 
   .simurg-header-meta {
     align-items: flex-start;
+    text-align: left;
+    gap: 0.35rem;
+  }
+
+  /* keep EN + Work With Us tidy and away from the social rail */
+  .header-cta {
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .header-cta select {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+  }
+
+  .header-cta .work-with-us-btn {
+    padding: 0.65rem 2rem;
+    font-size: 0.8rem;
+  }
+
+  /* circle + menu spacing for smaller viewports */
+  .simurg-center {
+    margin: 3.8rem 0 3rem;
+    min-height: 220px;
+  }
+
+  .simurg-circle {
+    top: -45vmin;
+    width: 130vmin;
+    height: 130vmin;
+  }
+
+  .hero-social-rail {
+    left: 4vw;
+    gap: 0.5rem;
   }
 
   .simurg-menu {
     flex-wrap: wrap;
     justify-content: flex-start;
-    row-gap: 0.8rem;
+    row-gap: 0.6rem;
+    column-gap: 1.8rem;
+    margin-top: 4.2rem;
+    padding: 0;
   }
 
+  .simurg-footer-text {
+    font-size: clamp(2.6rem, 12vw, 3.4rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .header-cta {
+    flex-wrap: wrap;
+  }
+
+  .header-cta .work-with-us-btn {
+    margin-top: 0.4rem;
+  }
 }
 
 /* ===== APPLICATION PAGE ===== */
