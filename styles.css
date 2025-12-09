@@ -476,4 +476,74 @@ body.app-page {
     writing-mode: horizontal-tb;
     transform: none;
   }
-}
+@media (max-width: 768px) {
+
+  /* overall padding for mobile */
+  .simurg-inner {
+    padding: 1.8rem 6vw 2.4rem;
+  }
+
+  /* stack title and meta */
+  .simurg-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .simurg-header-main {
+    font-size: clamp(1.9rem, 7vw, 2.3rem);
+  }
+
+  .simurg-header-meta {
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.25rem;
+  }
+
+  /* EN + Work With Us row */
+  .header-cta {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .header-cta select {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+  }
+
+  .header-cta .work-with-us-btn {
+    padding: 0.6rem 1.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* simplify hero graphics for small screens */
+  .simurg-center {
+    margin: 3rem 0 2.4rem;
+    min-height: 200px;
+  }
+
+  .simurg-circle {
+    display: none; /* hide big circle on small phones so it doesn't clutter */
+  }
+
+  .hero-social-rail {
+    left: 4vw;
+    gap: 0.4rem;
+  }
+
+  .simurg-menu {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 0.6rem;
+    column-gap: 1.4rem;
+    margin-top: 2.8rem;
+    padding: 0;
+  }
+
+  .simurg-footer-text {
+    font-size: clamp(2.3rem, 11vw, 3.2rem);
+  }
