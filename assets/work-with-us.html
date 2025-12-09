@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work With Us • Eloquence Productions</title>
+
+  <!-- Styling -->
+  <link rel="stylesheet" href="../styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="app-page">
+
+  <main class="app-shell">
+
+    <!-- LEFT VERTICAL LABEL -->
+    <aside class="app-sidebar">
+      <div class="app-vertical-word">ELEVATE WITH ELOQUENCE</div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <section class="app-main">
+
+      <header class="app-header">
+        <h1 class="app-title">WORK WITH ELOQUENCE</h1>
+        <p class="app-subtitle">
+          Please complete this form to be considered for collaboration with Eloquence Productions.<br>
+          Leave any fields that do not apply blank.
+        </p>
+      </header>
+
+      <form class="app-form" id="work-with-us-form">
+
+        <div class="app-field">
+          <label>Full Name</label>
+          <input type="text" name="fullName" />
+        </div>
+
+        <div class="app-field">
+          <label>Business Name (Optional)</label>
+          <input type="text" name="businessName" />
+        </div>
+
+        <div class="app-field">
+          <label>Email</label>
+          <input type="email" name="email" />
+        </div>
+
+        <div class="app-field">
+          <label>Phone Number</label>
+          <input type="text" name="phone" />
+        </div>
+
+        <div class="app-field">
+          <label>City / Location</label>
+          <input type="text" name="city" />
+        </div>
+
+        <div class="app-field">
+          <label>Role</label>
+          <input type="text" name="role" />
+        </div>
+
+        <div class="app-field">
+          <label>Position / Department</label>
+          <select name="department">
+            <option value="">Please select</option>
+            <option>Fashion Design</option>
+            <option>Media</option>
+            <option>Runway Production</option>
+            <option>Casting</option>
+            <option>Show Architecture</option>
+            <option>Backstage Systems</option>
+            <option>Executive / Operations</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="app-field">
+          <label>Portfolio / Website</label>
+          <input type="text" name="portfolio" />
+        </div>
+
+        <div class="app-field">
+          <label>Instagram Link</label>
+          <input type="text" name="instagram" />
+        </div>
+
+        <div class="app-field">
+          <label>LinkedIn Profile</label>
+          <input type="text" name="linkedin" />
+        </div>
+
+        <div class="app-field">
+          <label>Tell Us About Yourself in a Few Sentences</label>
+          <textarea rows="5" name="about"></textarea>
+        </div>
+
+        <label class="app-checkbox">
+          <input type="checkbox" name="confirm" />
+          I confirm that the information provided above is accurate to the best of my knowledge.
+        </label>
+
+        <button type="submit" class="app-submit-button pill-button casting-button">
+          Submit Application
+        </button>
+
+        <p class="app-footer-note">Thank you for your submission.</p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('work-with-us-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwpx1L-KR4cMzld77pY1aOFmJg6pXNRHbNtEx8GuD-BOrfXygeTANcAjU4IG3L8wDfn/exec';
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          form.reset();
+          alert('Thank you. Your application has been submitted.');
+        } else {
+          alert('Something went wrong. Please try again in a moment.');
+        }
+      } catch (error) {
+        alert('There was a network error. Please try again later.');
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -22,7 +22,6 @@ button {
   border: none;
   background: none;
   padding: 0;
-  cursor: inherit;
   color: inherit;
 }
 
@@ -77,6 +76,43 @@ button {
   position: relative;
   margin: 5.5rem 0 4rem;
   min-height: 260px;
+}
+
+.hero-social-rail {
+  position: absolute;
+  left: 3vw;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 3;
+}
+
+.social-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 230, 225, 0.7);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #E8E6E1;
+  background-color: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.social-badge:hover,
+.social-badge:focus-visible {
+  background-color: #E8E6E1;
+  color: #3E3228;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
 }
 
 .simurg-circle {
@@ -141,6 +177,46 @@ button {
   color: #E8E6E1;
 }
 
+.header-cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.header-cta .work-with-us-btn {
+  position: relative;
+  z-index: 10;
+}
+
+.work-with-us-btn {
+  background-color: #E8E6E1;
+  color: #3E3228;
+  padding: 0.75rem 2.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: inline-block;
+  border: none;
+  transition: all 0.28s ease;
+  cursor: url("assets/CURSOR_ELOQUENCE LOGO-TRANSPARENT BACKGROUND.png") 24 24, pointer;
+}
+
+.work-with-us-btn:hover {
+  background-color: #4B3D30;
+  color: #E8E6E1;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
+}
+
+.work-with-us-center {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ===== LONG-SCROLL SECTIONS (CENTER PANEL) ===== */
 
 .page-section {
@@ -180,8 +256,8 @@ button {
   text-transform: uppercase;
   display: inline-block;
   margin-top: 2.2rem;
-  cursor: pointer;
   transition: all 0.28s ease;
+  cursor: url("assets/CURSOR_ELOQUENCE LOGO-TRANSPARENT BACKGROUND.png") 24 24, pointer;
 }
 
 .pill-button.casting-button:hover {
@@ -210,4 +286,131 @@ button {
     row-gap: 0.8rem;
   }
 
+}
+
+/* ===== APPLICATION PAGE ===== */
+
+body.app-page {
+  background-color: #E8E6E1;
+  color: #3E3228;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(60px, 90px) minmax(0, 1fr);
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3.5rem 6vw 3.5rem;
+  column-gap: 2.5rem;
+}
+
+.app-sidebar {
+  border-left: 1px solid #BDB5A3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-vertical-word {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #BDB5A3;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.app-header p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.app-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.app-field label {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.app-field input,
+.app-field select,
+.app-field textarea {
+  border: none;
+  border-bottom: 1px solid #BDB5A3;
+  padding: 0.45rem 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #3E3228;
+  outline: none;
+}
+
+.app-field input:focus,
+.app-field select:focus,
+.app-field textarea:focus {
+  border-bottom-color: #3E3228;
+}
+
+.app-checkbox {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.app-checkbox input {
+  margin-right: 0.5rem;
+}
+
+.app-submit {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.app-footer-note {
+  font-size: 0.75rem;
+  margin-top: 0.75rem;
+  opacity: 0.7;
+}
+
+/* mobile */
+
+@media (max-width: 800px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .app-sidebar {
+    border-left: none;
+    justify-content: flex-start;
+  }
+
+  .app-vertical-word {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
 }

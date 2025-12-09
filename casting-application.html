@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casting Application • Eloquence Productions</title>
+
+  <!-- Styling -->
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body class="app-page">
+
+  <main class="app-shell">
+
+    <!-- LEFT VERTICAL LABEL -->
+    <aside class="app-sidebar">
+      <div class="app-vertical-word">ELOQUENCE CASTING</div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <section class="app-main">
+
+      <header class="app-header">
+        <h1 class="app-title">CASTING APPLICATION</h1>
+        <p class="app-subtitle">
+          Please complete this form to be considered for model casting with Eloquence Productions.
+          Leave any fields that do not apply blank.
+        </p>
+      </header>
+
+      <form class="app-form" id="casting-form">
+
+        <div class="app-field">
+          <label>Full Name</label>
+          <input type="text" name="fullName" />
+        </div>
+
+        <div class="app-field">
+          <label>Email</label>
+          <input type="email" name="email" />
+        </div>
+
+        <div class="app-field">
+          <label>Phone Number</label>
+          <input type="text" name="phone" />
+        </div>
+
+        <div class="app-field">
+          <label>City</label>
+          <input type="text" name="city" />
+        </div>
+
+        <div class="app-field">
+          <label>Height</label>
+          <input type="text" name="height" placeholder="e.g. 5'10&quot; / 178 cm" />
+        </div>
+
+        <div class="app-field">
+          <label>Measurements</label>
+          <input type="text" name="measurements" placeholder="Bust / Waist / Hips or Chest / Waist / Inseam" />
+        </div>
+
+        <div class="app-field">
+          <label>Dress Size</label>
+          <input type="text" name="dressSize" />
+        </div>
+
+        <div class="app-field">
+          <label>Shoe Size</label>
+          <input type="text" name="shoeSize" />
+        </div>
+
+        <div class="app-field">
+          <label>Agency Representation</label>
+          <input type="text" name="agency" placeholder="Agency name, agent contact, or Independent" />
+        </div>
+
+        <div class="app-field">
+          <label>Instagram link</label>
+          <input type="text" name="instagram" placeholder="https://www.instagram.com/eloquenceshows" />
+        </div>
+
+        <div class="app-field">
+          <label>Portfolio / Website</label>
+          <input type="text" name="portfolio" />
+        </div>
+
+        <div class="app-field">
+          <label>Digitals (Link)</label>
+          <input type="text" name="digitals" placeholder="Link to folder or album" />
+        </div>
+
+        <div class="app-field">
+          <label>Runway & Show Experience</label>
+          <textarea rows="4" name="runwayExperience" placeholder="List notable shows, seasons, and cities (e.g. NYFW, PFW, Swim Week)"></textarea>
+        </div>
+
+        <div class="app-field">
+          <label>Hair Color</label>
+          <textarea rows="3" name="hairColor" placeholder="Brown, black, blonde, red, etc."></textarea>
+        </div>
+
+        <div class="app-field">
+          <label>Eye Color</label>
+          <input type="text" name="eyeColor" placeholder="Brown, blue, green, hazel" />
+        </div>
+
+        <div class="app-field">
+          <label>Availability / Travel</label>
+          <textarea rows="3" name="availability" placeholder="Typical availability, passport/visa status"></textarea>
+        </div>
+
+        <label class="app-checkbox">
+          <input type="checkbox" name="confirm" />
+          I confirm that the information provided above is accurate to the best of my knowledge.
+        </label>
+
+        <button type="submit" class="app-submit-button pill-button casting-button">
+          Submit Casting Application
+        </button>
+
+        <p class="app-footer-note">Thank you for submitting to Eloquence Casting.</p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('casting-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbw7ZWA9xEBvobjKU8Qjp8TH7nsvMA2wDzpRt8EJwJHmu_K7xEhemrUin74XyTj5iZUpbg/exec';
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          form.reset();
+          alert('Thank you. Your casting application has been submitted.');
+        } else {
+          alert('Something went wrong. Please try again in a moment.');
+        }
+      } catch (error) {
+        alert('There was a network error. Please try again later.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
