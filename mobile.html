@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3E3228" />
+  <meta name="description" content="Eloquence Productions is a runway production house based in New York." />
+  <title>Eloquence Productions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="mobile-site">
+  <main class="mobile-shell">
+    <header class="mobile-header">
+      <div class="mobile-title-block">
+        <h1 class="mobile-title">RUNWAY<br>PRODUCTION<br>HOUSE</h1>
+        <div class="mobile-meta">
+          <div>NEW YORK</div>
+          <div>ELOQUENCE PRODUCTIONS</div>
+          <div>EST. 2025</div>
+        </div>
+      </div>
+
+      <div class="mobile-cta-row">
+        <select aria-label="Language" class="mobile-lang-select">
+          <option selected>EN</option>
+        </select>
+
+        <a class="work-with-us-btn" href="assets/work-with-us.html">WORK WITH US</a>
+      </div>
+    </header>
+
+    <section class="mobile-social">
+      <a class="social-badge" href="https://www.instagram.com/eloquenceshows/" target="_blank" rel="noopener noreferrer">IG</a>
+      <a class="social-badge" href="https://www.tiktok.com/@eloquenceshows" target="_blank" rel="noopener noreferrer">TT</a>
+      <a class="social-badge" href="https://www.youtube.com/@EloquenceShows" target="_blank" rel="noopener noreferrer">YT</a>
+      <a class="social-badge" href="https://x.com/eloquenceshows" target="_blank" rel="noopener noreferrer">X</a>
+      <a class="social-badge" href="https://www.linkedin.com/company/eloquence-productions" target="_blank" rel="noopener noreferrer">IN</a>
+      <a class="social-badge" href="https://www.pinterest.com/EloquenceShows/" target="_blank" rel="noopener noreferrer">PI</a>
+    </section>
+
+    <nav class="mobile-menu">
+      <a class="mobile-menu-item" href="index.html#creative">CREATIVE DIRECTION</a>
+      <a class="mobile-menu-item" href="index.html#runway">RUNWAY PRODUCTION</a>
+      <a class="mobile-menu-item" href="casting-application.html">CASTING</a>
+      <a class="mobile-menu-item" href="index.html#architecture">SHOW ARCHITECTURE</a>
+      <a class="mobile-menu-item" href="index.html#backstage">BACKSTAGE SYSTEMS</a>
+    </nav>
+
+    <footer class="mobile-footer">
+      <div class="mobile-footer-text">ELOQUENCE<br>PRODUCTIONS</div>
+    </footer>
+  </main>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var isDesktop = window.matchMedia && window.matchMedia('(min-width: 769px)').matches;
+      if (isDesktop && !location.pathname.endsWith('/index.html')) {
+        location.replace('index.html');
+      }
+    })();
+  </script>
+</body>
+</html>
