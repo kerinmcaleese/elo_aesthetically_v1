@@ -13,6 +13,16 @@ body.mobile-site {
   overflow-x: hidden;
 }
 
+.mobile-site a,
+.mobile-site a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mobile-site a:active {
+  color: inherit;
+}
+
 .mobile-shell {
   min-height: 100vh;
   padding: max(2.2rem, env(safe-area-inset-top)) 7vw max(2.8rem, env(safe-area-inset-bottom));
@@ -151,6 +161,8 @@ body.mobile-site {
 }
 
 .scroll-top {
+  position: fixed;
   right: 1rem;
   bottom: max(1.2rem, env(safe-area-inset-bottom));
+  z-index: 999;
 }

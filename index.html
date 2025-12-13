@@ -14,8 +14,25 @@
   />
 
   <link rel="stylesheet" href="styles.css" />
+  <!-- Mobile redirect -->
+  <script>
+    (function () {
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      const prefersDesktop = sessionStorage.getItem("preferDesktop") === "true";
+      const onMobilePage = window.location.pathname.endsWith("mobile.html");
+
+      if (isMobile && !onMobilePage && !prefersDesktop) {
+        window.location.replace("mobile.html");
+      }
+    })();
+  </script>
 </head>
 <body>
+  <noscript>
+    <p style="padding:1rem; text-align:center;">
+      <a href="mobile.html">View mobile version</a>
+    </p>
+  </noscript>
   <!-- HERO -->
   <main class="simurg-hero">
     <div class="hero-social-rail">
