@@ -227,5 +227,13 @@ We oversee all lighting and sound design, build press pits, coordinate guest flo
   </section>
 
   <script src="script.js"></script>
+  <script>
+    (function () {
+      var isMobile = window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+      if (isMobile && !location.pathname.endsWith("mobile.html")) {
+        location.replace("mobile.html");
+      }
+    })();
+  </script>
 </body>
 </html>
