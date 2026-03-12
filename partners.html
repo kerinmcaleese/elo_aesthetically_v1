@@ -11,27 +11,120 @@
 
   <link rel="stylesheet" href="styles.css" />
 <style>
-
-/* subtle glow + hover motion */
-.partner-tile {
-  transition: transform .25s ease, box-shadow .25s ease;
+/* ===== PARTNERS PAGE BASE ===== */
+body.partners-page {
+  background-color: #3E3228;
+  color: #E8E6E1;
+  font-family: "Figtree", system-ui, -apple-system, sans-serif;
+  margin: 0;
 }
 
-/* override hover: full tile effect, including background override */
+.partners-shell {
+  min-height: 100vh;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 3rem 6vw 4rem;
+}
+
+.partners-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.partners-back {
+  color: #E8E6E1;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.partners-back:hover,
+.partners-back:focus-visible {
+  opacity: 1;
+}
+
+.partners-brand {
+  text-align: right;
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.82;
+  line-height: 1.45;
+}
+
+.partners-hero {
+  max-width: 980px;
+  margin-bottom: 4rem;
+}
+
+.partners-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #9C8F7C;
+  margin: 0 0 1rem;
+}
+
+.partners-title {
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #E8E6E1;
+  margin: 0 0 1.4rem;
+}
+
+.partners-intro {
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(232, 230, 225, 0.82);
+  margin: 0;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.partner-tile {
+  min-height: 180px;
+  border: 1px solid rgba(232, 230, 225, 0.16);
+  border-radius: 24px;
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: rgba(232, 230, 225, 0.03);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+}
+
 .partner-tile:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(0,0,0,.25);
   background: rgba(232,230,225,.12);
+  border-color: rgba(232,230,225,.32);
 }
 
-/* logo or text scale */
- .partner-tile img,
- .partner-placeholder {
-   transition: transform .25s ease, opacity .25s ease;
- }
+.partner-tile img,
+.partner-placeholder {
+  transition: transform .25s ease, opacity .25s ease;
+}
 
-/* make light logos readable by default */
 .partner-tile img {
+  max-width: 70%;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   opacity: 1;
   filter: none;
   mix-blend-mode: normal;
@@ -42,23 +135,30 @@
   transform: scale(1.08);
 }
 
-/* stagger entrance animation */
+.partner-placeholder {
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #E8E6E1;
+  text-align: center;
+  line-height: 1.5;
+}
+
 .partners-grid a {
   opacity: 0;
   transform: translateY(16px);
   animation: partnerFade .6s ease forwards;
 }
 
-.partners-grid a:nth-child(1){ animation-delay:.05s }
-.partners-grid a:nth-child(2){ animation-delay:.10s }
-.partners-grid a:nth-child(3){ animation-delay:.15s }
-.partners-grid a:nth-child(4){ animation-delay:.20s }
-.partners-grid a:nth-child(5){ animation-delay:.25s }
-.partners-grid a:nth-child(6){ animation-delay:.30s }
-.partners-grid a:nth-child(7){ animation-delay:.35s }
-.partners-grid a:nth-child(8){ animation-delay:.40s }
+.partners-grid a:nth-child(1) { animation-delay: .05s; }
+.partners-grid a:nth-child(2) { animation-delay: .10s; }
+.partners-grid a:nth-child(3) { animation-delay: .15s; }
+.partners-grid a:nth-child(4) { animation-delay: .20s; }
+.partners-grid a:nth-child(5) { animation-delay: .25s; }
+.partners-grid a:nth-child(6) { animation-delay: .30s; }
+.partners-grid a:nth-child(7) { animation-delay: .35s; }
+.partners-grid a:nth-child(8) { animation-delay: .40s; }
 
-/* give pale logos a soft contrast plate */
 .partner-tile:nth-child(3),
 .partner-tile:nth-child(8) {
   background: rgba(232,230,225,.08);
@@ -66,11 +166,46 @@
 
 @keyframes partnerFade {
   to {
-    opacity:1;
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
+@media (max-width: 1100px) {
+  .partners-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .partners-shell {
+    padding: 2rem 6vw 3rem;
+  }
+
+  .partners-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+  }
+
+  .partners-brand {
+    text-align: left;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .partner-tile {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 520px) {
+  .partners-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 
