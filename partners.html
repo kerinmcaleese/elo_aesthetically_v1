@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partners | Eloquence Productions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+<style>
+
+/* subtle glow + hover motion */
+.partner-tile {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* override hover: full tile effect, including background override */
+.partner-tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+  background: rgba(232,230,225,.12);
+}
+
+/* logo or text scale */
+ .partner-tile img,
+ .partner-placeholder {
+   transition: transform .25s ease, opacity .25s ease;
+ }
+
+/* make light logos readable by default */
+.partner-tile img {
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+.partner-tile:hover img,
+.partner-tile:hover .partner-placeholder {
+  transform: scale(1.08);
+}
+
+/* stagger entrance animation */
+.partners-grid a {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: partnerFade .6s ease forwards;
+}
+
+.partners-grid a:nth-child(1){ animation-delay:.05s }
+.partners-grid a:nth-child(2){ animation-delay:.10s }
+.partners-grid a:nth-child(3){ animation-delay:.15s }
+.partners-grid a:nth-child(4){ animation-delay:.20s }
+.partners-grid a:nth-child(5){ animation-delay:.25s }
+.partners-grid a:nth-child(6){ animation-delay:.30s }
+.partners-grid a:nth-child(7){ animation-delay:.35s }
+.partners-grid a:nth-child(8){ animation-delay:.40s }
+
+/* give pale logos a soft contrast plate */
+.partner-tile:nth-child(3),
+.partner-tile:nth-child(8) {
+  background: rgba(232,230,225,.08);
+}
+
+@keyframes partnerFade {
+  to {
+    opacity:1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</head>
+
+<body class="partners-page">
+
+  <main class="partners-shell">
+
+    <div class="partners-topbar">
+      <a href="index.html" class="partners-back">Back to Home</a>
+      <div class="partners-brand">
+        Eloquence Productions<br>
+        New York
+      </div>
+    </div>
+
+    <section class="partners-hero">
+      <p class="partners-kicker">Partners</p>
+      <h1 class="partners-title">Our Network</h1>
+
+      <p class="partners-intro">
+        Eloquence collaborates with a growing network of designers, venues, media platforms, creative studios, and production partners across the fashion industry. Each relationship expands the ecosystem that allows visionary runway concepts to come to life.
+      </p>
+    </section>
+
+    <section class="partners-grid" aria-label="Partners directory">
+
+      <a class="partner-tile" href="https://originofoceans.com/?srsltid=AfmBOooI8ou918mMz_SbWH_q2aEINLtAEaldyEtHZFCuf_23sMQn1RXF" target="_blank" rel="noopener noreferrer">
+        <img src="assets/origin-of-oceans.png" alt="Origin of Oceans">
+      </a>
+
+      <a class="partner-tile" href="https://godstuffclothing.com/?srsltid=AfmBOoqYZTXhW3YZhUCRFMddrIfnRQcocA7-wldjo7l9Xt-HgUw1W1wy" target="_blank" rel="noopener noreferrer">
+        <img src="assets/phillip-bloch.jpg" alt="Omniscient Things by Phillip Bloch">
+      </a>
+
+      <a class="partner-tile" href="https://sorabyrd.com/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/sorabyrd.png" alt="Sora Byrd">
+      </a>
+
+      <a class="partner-tile" href="https://www.yazelstudio.com" target="_blank" rel="noopener noreferrer">
+        <img src="assets/yazel.png" alt="Yazel Studio">
+      </a>
+
+      <a class="partner-tile" href="https://www.bacistudio.com/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/Baci.svg" alt="Baci Studio">
+      </a>
+
+      <a class="partner-tile" href="#" target="_blank" rel="noopener noreferrer">
+        <img src="assets/bosshi.png" alt="BOSSHI">
+      </a>
+
+      <a class="partner-tile" href="#" target="_blank" rel="noopener noreferrer">
+        <span class="partner-placeholder">Oh The Dudes You Will Date</span>
+      </a>
+
+      <a class="partner-tile" href="https://www.akirocjewelry.com/" target="_blank" rel="noopener noreferrer">
+        <img src="assets/Aki Roc Kijima Logo.png" alt="Aki Roc Jewelry">
+      </a>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

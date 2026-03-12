@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Press Portal | Blueprint NYFW February 2026</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <main class="gateWrap">
+      <section class="gateCard" aria-label="Press portal password gate">
+        <div class="pillTitle">PRESS PORTAL</div>
+        <div class="pillSubtitle">NYFW FEBRUARY 2026</div>
+        <div class="pillSubtitle">BLUEPRINT SHOW</div>
+
+        <form id="pressGate" class="gateForm" autocomplete="off">
+          <label class="srOnly" for="pw">Password</label>
+          <input
+            id="pw"
+            class="pwInput"
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <button class="enterBtn" type="submit">Enter</button>
+          <p id="msg" class="gateMsg" aria-live="polite"></p>
+        </form>
+
+        <p class="miniNote">
+          Need access? Email
+          <a class="miniLink" href="mailto:press@eloquenceshows.org">
+            press@eloquenceshows.org
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <script>
+      /* ==============================
+         CONFIG
+         ============================== */
+
+      // Set your press password here
+      const CORRECT_PASSWORD = "Eloquently";
+
+      // Paste the Eloquence Google Drive photographer upload folder link here
+      const DRIVE_UPLOAD_LINK = "PASTE_YOUR_GOOGLE_DRIVE_FOLDER_SHARE_LINK_HERE";
+
+      /* ==============================
+         LOGIC
+         ============================== */
+
+      const form = document.getElementById("pressGate");
+      const pw = document.getElementById("pw");
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        msg.textContent = "";
+
+        if (pw.value === CORRECT_PASSWORD) {
+          if (!DRIVE_UPLOAD_LINK.startsWith("https://")) {
+            msg.textContent = "Drive link not set yet";
+            msg.classList.remove("ok");
+            return;
+          }
+
+          msg.textContent = "Access granted";
+          msg.classList.add("ok");
+
+          setTimeout(() => {
+            window.location.href = DRIVE_UPLOAD_LINK;
+          }, 700);
+        } else {
+          msg.textContent = "Incorrect password";
+          msg.classList.remove("ok");
+          pw.value = "";
+          pw.focus();
+        }
+      });
+    </script>
+  </body>
+</html>
